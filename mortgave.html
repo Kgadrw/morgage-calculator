@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mortgage Calculator</title>
+</head>
+<body>
+   <P>Welcome to my mortgage calculator</P>
+   <form>
+       <label for="principal">Principal amount:</label><br>
+      <input type="text" id="principal" name="principal"><br>
+      <label for="interest">Annual interest rate (as a decimal):</label><br>
+      <input type="text" id="interest" name="interest"><br>
+      <label for="years">Number of years:</label><br>
+      <input type="text" id="years" name="years"><br>
+      <input type="submit" value="Calculate">
+   </form>
+   <script>
+         document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var principal = document.getElementById('principal').value;
+            var interest = document.getElementById('interest').value;
+            var years = document.getElementById('years').value;
+            var monthlyPayment = (principal * interest / 12) / (1 - Math.pow(1 + interest / 12, -years * 12));
+            alert('Your monthly payment is: $' + monthlyPayment.toFixed(2));
+         });
+   </script>
+</body>
+</html>
+
+
